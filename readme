@@ -1,0 +1,15 @@
+Checkpoint
+Express API server that manages something (to-dos, users, recipes, events, cars, students)
+REQUIREMENTS:
+- We want an API endpoint (route) that can:
+-add an item to the db
+- update an item in the db, given the id
+- list a summary of all items in the db
+- get details about a single item, given the id
+- delete an item in the db, given the id
+
+you must use more than 1 file. Like, organize your code using a router file and controller file
+you must use the static functionality to server up an html file that acts as the documentation for your API
+Your code/functions should have good code comments/ documentation
+Your app must connect to a database (mysql)
+You must use dotenv module to store sensitive information (db password, username, url)

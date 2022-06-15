@@ -2,7 +2,7 @@ Checkpoint
 Express API server that manages something (to-dos, users, recipes, events, cars, students)
 REQUIREMENTS:
 - We want an API endpoint (route) that can:
--add an item to the db
+- add an item to the db
 - update an item in the db, given the id
 - list a summary of all items in the db
 - get details about a single item, given the id
@@ -13,3 +13,10 @@ you must use the static functionality to server up an html file that acts as the
 Your code/functions should have good code comments/ documentation
 Your app must connect to a database (mysql)
 You must use dotenv module to store sensitive information (db password, username, url)
+*******************************************
+I need to complete line 12
+I need to add good comments
+I need to get details of a recipe
+I need to be able to delete a recipe
+I need to be able to update a recipe
+Also add the SQL statement I used to create the table in the database

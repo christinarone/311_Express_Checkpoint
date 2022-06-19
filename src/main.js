@@ -13,8 +13,10 @@ app.use(express.static('public'))
 
 //get the route definition
 const recipeRoutes = require('./routes/recipeRoutes');
+const userRoutes = require('./routes/userRoutes');
 //tell the express app to use the routes
 app.use(recipeRoutes);
+app.use(userRoutes);
 
 // start the express app and log what port I'm in
 //HERE add the static html page

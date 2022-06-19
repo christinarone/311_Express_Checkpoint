@@ -5,6 +5,7 @@ const connection = require("../model/db");
 // function to return a summary of the items on the response
 let itemsSummary = function(req, res){
     console.log('item summary')
+    console.log(req)
     const sql = "SELECT * FROM recipes"
     connection.query(sql, (err, results) => {
         res.status(200).json(results)

@@ -1,9 +1,11 @@
 const express = require("express");
 let router = new express.Router()
 let controller = require("../controllers/recipeController");
+const checkJwt = require("../checkJwt")
+
 
 // get summary of items
-router.get("/recipes", controller.itemsSummary);
+router.get("/recipes",checkJwt, controller.itemsSummary);
 
 //get detail of a single item
 router.get("/recipes/:id", controller.itemDetails);

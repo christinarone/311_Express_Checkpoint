@@ -4,7 +4,7 @@ let controller = require("../controllers/usersController");
 
 // router.get("/users", controller.getUsers);
 
-//create a route to get one userby id
+//create a route to get one user by id
 // router.get("/users:id", controller.getOneUser);
 
 //create a route to create a new user

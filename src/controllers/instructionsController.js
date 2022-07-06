@@ -4,7 +4,7 @@ const connection = require("../model/db");
 let itemsSummary = function(req, res){
     console.log('item summary')
     console.log(req)
-    const sql = "SELECT * FROM recipes"
+    const sql = "SELECT * FROM instructions"
     connection.query(sql, (err, results) => {
         res.status(200).json(results)
     })
@@ -20,7 +20,7 @@ let itemDetails = function(req, res){
     const id = req.params.id
     console.log(id)
     // we are selecting a recipe from its id from the mySQL db.
-    let sql = "SELECT * FROM recipes WHERE id = ?"
+    let sql = "SELECT * FROM instructions WHERE id = ?"
     connection.query(sql, [id], (err, results)=> {
         //Check for any unexpected errors first
         if(err){
@@ -29,7 +29,7 @@ let itemDetails = function(req, res){
         }
         // Check if results has a length of 0, meaning no results for that Id
         if(results.length === 0){
-            return res.status(400).json("There is no recipes with that Id.")
+            return res.status(400).json("There are no instructions with that Id.")
         }
         // Otherwise, ID exists and we want to return the result.
         else {
@@ -38,20 +38,21 @@ let itemDetails = function(req, res){
     })
     //res.sendStatus(204);
 }
-//this is condensed form//
+
 //function to create a new item
 let createItem = function(req, res){
-    const {recipe_name, recipe_description} = req.body
+    console.log('INSIDE /POST /create-instruction')
+    const {recipe_id, steps, description} = req.body
     const sql = `
-        INSERT INTO recipes (recipe_name, recipe_description)
-        VALUES (?, ?);
+        INSERT INTO instructions (recipe_id, steps, description)
+        VALUES (?, ?, ?);
     `
-    connection.query(sql, [recipe_name, recipe_description],(err, results) => {
+    connection.query(sql, [recipe_id, steps, description],(err, results) => {
         if(err)return res.status(400).json({error: err})
         res.status(200).json(results)
 })
 }
-//who owns the recipe on line 46?
+
 //function to update an item
 //I need to add a way to update a recipe
 let updateItem = function (req, res){

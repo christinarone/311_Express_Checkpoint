@@ -4,10 +4,10 @@ let controller = require("../controllers/recipeController");
 const checkJwt = require("../checkJwt")
 
 
-// get summary of items
+// get summary of items, I need to be logged in
 router.get("/recipes",checkJwt, controller.itemsSummary);
 
-//get detail of a single item
+//get detail of a single item, I need to be logged in
 router.get("/recipes/:id", controller.itemDetails);
 
 //create a new item

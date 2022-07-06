@@ -28,3 +28,16 @@ Assignment: Build an Express backend, connected to mysql that has the following 
 3. any route, that does anything you want, but it must respond correctly for any request even if it doesn't contain a valid token
 (easy, this is what we have been doing so far).
 4. a route that requires a valid signed token to complete successfully (this is the new, you will need a middleware!)
+**********************************************************************************************************************
+Homework 6/23/22
+Checkpoint #2 (#1 & #3 are the bulk of this assignment)
+1. Data Model Picture (ERD diagram)
+2. Create table Queries for your data model  (SQL statements)
+3. A list of the routes that you intend to implement, and document what the route will do
+4. Implement a good portion of your routes (looking for 75%)(recipe routes)
+5. If your app will have protected routes (need authentication), then implement a "/register" and "/login" routes
+6. If your app will have protected routes, then implement middleware to check that a request has a valid token
+7. Deploy your backend to some cloud server (heroku)
+8. Connect your backend to Mysql (probably AWS)
+
+** Routes**

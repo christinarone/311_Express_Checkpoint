@@ -1,6 +1,7 @@
 const express = require("express");
 let router = new express.Router()
-let controller = require("../controllers/measurementsController");
+const controller = require("../controllers/measurementsConroller")
+
 const checkJwt = require("../checkJwt")
 
 
@@ -22,9 +23,9 @@ router.put("/measurements/:id", controller.updateItem);
 // delete and item, given its id
 router.delete("/measurements/:id", controller.deleteItem);
 
-//I can edit the instructions one at a time, but that's problematic. How can I edit the instuctions all
-//at once for a recipe? Figure this out and change the routes to fix this. The routes I have now work but I
-//may have issues later. Missing routes for ingredients, measurement --what's on the tables.
-//
+// I can edit the instructions one at a time, but that's problematic. How can I edit the instuctions all
+// at once for a recipe? Figure this out and change the routes to fix this. The routes I have now work but I
+// may have issues later. Missing routes for ingredients, measurement --what's on the tables.
+
 
 module.exports = router;

@@ -30,7 +30,7 @@ app.use(recipeIngredientsRoutes);
 
 // start the express app and log what port I'm in
 //HERE add the static html page
-app.listen(PORT, function(){
+app.listen(PORT, function () {
     console.log("Api Server started on port", PORT);
 });
 

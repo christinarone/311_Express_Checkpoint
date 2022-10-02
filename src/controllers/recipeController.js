@@ -42,8 +42,8 @@ let itemDetails = function (req, res) {
 let createItem = function (req, res) {
     const { user_id, recipe_name, recipe_description } = req.body
     const sql = `
-        INSERT INTO recipes (recipe_name, recipe_description)
-        VALUES (?, ?);
+        INSERT INTO recipes (user_id, recipe_name, recipe_description)
+        VALUES (?, ?, ?);
     `
     connection.query(sql, [recipe_name, recipe_description], (err, results) => {
         if (err) return res.status(400).json({ error: err })

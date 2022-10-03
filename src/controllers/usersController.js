@@ -11,22 +11,16 @@ const signUp = (req, res) => {
     console.log('sign up user')
     let user_name = req.body.user_name;
     let password = req.body.password;
-
     let sql = "INSERT INTO users (user_name, password) VALUES(?, ?);";
     bcrypt.hash(password, 10, (error, hash) => {
         if (error) console.log(error)
         // Store hash in your password DB.
         console.log(hash)
         let params = [user_name, hash];
-
         db.query(sql, params, (err, results) => {
             res.json(results)
         });
-
-
     });
-
-
 }
 
 const login = async (req, res) => {
@@ -60,13 +54,14 @@ const login = async (req, res) => {
         console.log("hash", hash)
         bcrypt.compare(password, hash, (err2, results2) => {
             console.log(results2)
+            console.log("results", results[0].id)
             if (results2) {
                 let token = {
                     user_name: user_name,
                     user_id: results[0].id
                 };
                 let signedToken = jwt.sign(token, process.env.JWT_SECRET)
-                res.status(200).json({ token: signedToken });
+                res.status(200).json({ userid: results[0].id, token: signedToken });
                 //if the password is good or the correct password, then we will respond with this token 
             } else {
                 console.log("error")

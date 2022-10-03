@@ -1,9 +1,10 @@
 const connection = require("../model/db");
-
+const mysql = require("mysql")
 // function to return a summary of the items on the response
 let itemsSummary = function (req, res) {
     console.log('item summary')
-    const sql = "SELECT * FROM recipes"
+    let sql = "SELECT * FROM recipes"
+
     connection.query(sql, (err, results) => {
         res.status(200).json(results)
     })
@@ -45,7 +46,7 @@ let createItem = function (req, res) {
         INSERT INTO recipes (user_id, recipe_name, recipe_description)
         VALUES (?, ?, ?);
     `
-    connection.query(sql, [recipe_name, recipe_description], (err, results) => {
+    connection.query(sql, [user_id, recipe_name, recipe_description], (err, results) => {
         if (err) return res.status(400).json({ error: err })
         res.status(200).json(results)
     })

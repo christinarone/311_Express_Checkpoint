@@ -41,12 +41,12 @@ let itemDetails = function (req, res) {
 //this is condensed form//
 //function to create a new item
 let createItem = function (req, res) {
-    const { user_id, recipe_name, recipe_description } = req.body
+    const { user_id, recipe_name, recipe_description, recipe_thumbnail } = req.body
     const sql = `
-        INSERT INTO recipes (user_id, recipe_name, recipe_description)
-        VALUES (?, ?, ?);
+        INSERT INTO recipes (user_id, recipe_name, recipe_description, recipe_thumbnail)
+        VALUES (?, ?, ?, ?);
     `
-    connection.query(sql, [user_id, recipe_name, recipe_description], (err, results) => {
+    connection.query(sql, [user_id, recipe_name, recipe_description, recipe_thumbnail], (err, results) => {
         if (err) return res.status(400).json({ error: err })
         res.status(200).json(results)
     })
